@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: rN4zVnKa53M8prtd9ZH2FCu+vU/dWgBMIoHiLnfRLWsJ+WgHUS9pxul9yH0yS18N50ZcNxN4ymEMnD+jg+lw+itvF9pXJvtua+aikA2fTm1TcZHoPFTM+OzQDwc5rJwFHXwFgQevT7VTa9rHxyQu2sbs6/huXdil6vwGgRQJdahfuf68fYZgtdH8ZKZTCfEip9HVqn2fYrQl2YjleMFMm+BkfJWURt4bU6b4bmB5jXT1YcYbKaAF+f1fEzVmSCTd0DFaYwA1LCOS+BRd6TAVzfNFCM0suoZlzhgnwImF8dKbon4oV75ihFmj8Nv/a5qvF7Yr7MDuwiOHL6fJMM1y48fJeYaBiom7ymx93Vuwcx27ThFn+QT/d6g1tR7PT4iTOpPmQsUEhrAvb6WK4GWMmcIZ0qFaHTYaXsupFRYTeGrPTtcWXFkmDCG1Cyoj0qCEHEmC0O9yWndfeR5klCwmcXeHsqzMBCJxKdLvvcK7AfCHCjL2mlvmyI1a13p7THogQppZ3XyWvUtmddB6l8JxESZZE30D3eEm/jGaxFJOhjY9l87lDIbTu8Vt/yQZzK7LtUW9u0j0yg7PddtxFw6XUonh/sL5nxL8FW1MXMozKYDWBaNPlhhUeKMFWKKjPgirkV4Q0ikVb+W5sqT3hRfNDvRFqbGygGZXiKmr7HH5Jug=
+  app: sheltered-bayou-16057
+  on:
+    repo: thrasherDGK/api
