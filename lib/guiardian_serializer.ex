@@ -1,11 +1,11 @@
 defmodule Peepchat.GuardianSerializer do
-  @behavior Guardian.Serializer
+  @behaviour Guardian.Serializer
 
   alias Peepchat.Repo
   alias Peepchat.User
 
-  def for_toker(user = %User{}), do: { :ok, "User:#{user.id}" }
-  def for_toker(_), do: { :error, "Unknown resource type" }
+  def for_token(user = %User{}), do: { :ok, "User:#{user.id}" }
+  def for_token(_), do: { :error, "Unknown resource type" }
 
   def from_token("User:" <> id), do: { :ok, Repo.get(User, id) }
   def from_token(_), do: { :error, "Unknown resource type" }
