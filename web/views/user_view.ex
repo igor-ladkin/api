@@ -11,7 +11,7 @@ defmodule Peepchat.UserView do
 
   def render("user.json", %{user: user}) do
     %{
-    	"type": "users",
+    	"type": "user",
     	"id": user.id,
     	"attributes": %{
     		"email": user.email
